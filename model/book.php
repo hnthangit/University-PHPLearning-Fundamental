@@ -45,7 +45,7 @@
          * 
          */
         static function getListFromFile(){
-            $arrData = file("data/book.txt", FILE_SKIP_EMPTY_LINES);
+            $arrData = file("data/book.txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
             $lsbook = array();
             //var_dump($arrData);
             foreach ($arrData as $key => $value) {
@@ -59,7 +59,7 @@
 
         static function getList2($search = null){
 
-            $data = file("data/book.txt");
+            $data = file("data/book.txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     
             $arrBook = [];
     
@@ -106,6 +106,20 @@
             else 
                 echo "Da ton tai sach voi ID da nhap";
 
+
+            $arrData = file("data/book.txt");
+            $tempArr = array();
+            foreach ($arrData as $key => $value) {
+                var_dump($value);
+                # code...
+                if($value=="\n"){
+                    continue;                   
+                }
+                else{
+                    array_push($tempArr,$value);
+                }
+            }
+            file_put_contents('data/book.txt', $tempArr);
             
     
         }
@@ -117,14 +131,17 @@
             foreach ($listBook as $value) {
                 # code..
                 if($bookId == $value->id){
-                    $str = $value->id . "#" . $value->title . "#" . $value->price  . "#" . $value->author . "#" . $value->year;
+                    $str = $value->id . "#" . $value->title . "#" . $value->price  . "#" . $value->author . "#" . $value->year ;
                     var_dump($str);
                     break;
                 }
             }
             $contents = file_get_contents("data/book.txt");
             $contents = str_replace($str, '', $contents);
-            file_put_contents("data/book.txt", $contents);
+            $contents = preg_replace("/^\s+/m", '', $contents);
+            //$contents = str_replace("\n\n", "\n",$contents);
+            var_dump($contents);
+            file_put_contents("data/book.txt",$contents);
         }
 
         static function editBook($bookId, $newTitle, $newPrice, $newAuthor, $newYear){
