@@ -169,5 +169,23 @@
             file_put_contents("data/book.txt", $contents);
         }
 
+        static function getBookOfPage($page){
+            //So item moi trang
+            $limit = 5;
+            $tempArr = array();
+            $listBook = Book::getListFromFile();
+
+            $startItem = ($page-1)*5;
+            $endItem = $startItem + 4;
+
+            for ($i = $startItem; $i < $endItem + 1; $i++) {
+                # code...
+                if(isset($listBook[$i])){
+                    array_push($tempArr, $listBook[$i]);
+                }  
+            }
+
+            return $tempArr;
+        }
+
     }
-?>
