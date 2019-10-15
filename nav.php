@@ -94,6 +94,11 @@
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Bai so 4 phan trang</span></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="baiso6.php">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Bai so 6 ajax</span></a>
+      </li>
     </ul>
 
     <div id="content-wrapper">
