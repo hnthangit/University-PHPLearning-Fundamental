@@ -1,13 +1,8 @@
 <?php 
 include_once("model/user.php");
 include_once("model/book.php");
-$userName = $_REQUEST["username"];
 
-$lsFromFile = Book::getListFromJson();
-//$jsonBook  = json_encode($tempArr);
-//$user = new User($userName, "123", "Thang123");
-//$jsonUser = json_encode($user);
-//echo $jsonBook;
+$lsFromFile = Book::getBookOfPageFromDB($_GET["page"]);
 
 ?>
 <table class="table table-bordered">

@@ -5,7 +5,7 @@
 7#Boi loi#52#Huy#1998
 8#Du lich#43#Hoang#2016
 9#Am thuc#19#Lenovo#2003
-1#1#1#1#1
+1#Sách Hóa#56#Ánh#2012
 12#Nguoi dep trai#15#Ndung2#2020
 13#Nguoi xau trai#75#Ndung1#2013
 14#Nguoi ko dep trai#55#Ndung3#201
